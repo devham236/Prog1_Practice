@@ -4,7 +4,7 @@ CFLAGS = -std=gnu11 -Wall -Wpointer-arith -Wfatal-errors -lm
 DEBUG = -g
 MATH = -lm
 PROG1LIBNAME = prog1
-PROG1LIBDIR = prog1lib/lib
+PROG1LIBDIR = ../prog1lib/lib
 
 SOURCES=$(wildcard *.c)
 BINARIES=$(SOURCES:.c=)
