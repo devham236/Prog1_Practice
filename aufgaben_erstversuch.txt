@@ -1,0 +1,8 @@
+Baum
+- Bekommst einen Baum und sollst zählen wie viele Knoten größer als Geschwisterknoten sind
+
+Array
+- Bekommst ein array und sollst herausfinden, was der größte Zahlenwert im array ist, manchmal ist es nur ne Zahl aber kann auch ein array an sich sein wo du nochmal nachschauen sollst, also so: [1, 2, [4, 2], [0], [9, 8]] -> 9 wäre der größte Wert
+
+String
+- Bekommst ein String, ein Int und einen Index und du sollst dann den char am vorgegebenen index um so viele Stellen wie der Int wert verschieben.
