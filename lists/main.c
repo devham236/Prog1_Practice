@@ -13,11 +13,11 @@ void inser_end(Node **root, int v)
     new_node->value = v;
     new_node->next = NULL;
 
-    // if (*root == NULL)
-    // {
-    //     *root = new_node;
-    //     return;
-    // }
+    if (*root == NULL)
+    {
+        *root = new_node;
+        return;
+    }
 
     Node *curr = *root;
     while (curr->next != NULL)
