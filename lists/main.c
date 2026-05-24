@@ -9,17 +9,30 @@ typedef struct Node
 
 int main(void)
 {
+    // root element
     Node root;
-
     root.value = 5;
+
+    // zweites element
     root.next = malloc(sizeof(Node));
-
     root.next->value = 10;
-    root.next->next = NULL;
 
-    printf("First element: %d \n", root.value);
-    printf("Second element: %d \n", root.next->value);
+    // drittes element
+    root.next->next = malloc(sizeof(Node));
+    root.next->next->value = 4;
 
+    // letztes element
+    root.next->next->next = NULL;
+
+    Node *curr = &root;
+
+    while (curr != NULL)
+    {
+        printf("%d \n", curr->value);
+        curr = curr->next;
+    }
+
+    free(root.next->next);
     free(root.next);
     return 0;
 }

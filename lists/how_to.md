@@ -37,3 +37,44 @@ root.next->next = NULL;
 printf("First element: %d \n", root.value);
 printf("Second element: %d \n", root.next->value);
 ```
+
+### Iterieren
+
+- Um durch eine linked list mit einem while loop zu iterieren, brauchst du erstmal einen Start, eine Abbruchbedingung und etwas was bei jedem Schritt passieren soll
+- Du willst ja bei der root anfangen und dann jede Node durchgehen, also musst du in jedem Schritt dein curr auf die näcshte Node setzen, bis die aktuelle Node NULL ist.
+
+```c
+int main(void)
+{
+    // root element
+    Node root;
+    root.value = 5;
+
+    // zweites element
+    root.next = malloc(sizeof(Node));
+    root.next->value = 10;
+
+    // drittes element
+    root.next->next = malloc(sizeof(Node));
+    root.next->next->value = 4;
+
+    // letztes element
+    root.next->next->next = NULL;
+
+    // Start
+    Node *curr = &root;
+
+    // Abbruchbedingung
+    while (curr != NULL)
+    {
+        printf("%d \n", curr->value);
+
+        // Iterationsschritt
+        curr = curr->next;
+    }
+
+    free(root.next->next);
+    free(root.next);
+    return 0;
+}
+```
