@@ -42,6 +42,8 @@ printf("Second element: %d \n", root.next->value);
 
 - Um durch eine linked list mit einem while loop zu iterieren, brauchst du erstmal einen Start, eine Abbruchbedingung und etwas was bei jedem Schritt passieren soll
 - Du willst ja bei der root anfangen und dann jede Node durchgehen, also musst du in jedem Schritt dein curr auf die näcshte Node setzen, bis die aktuelle Node NULL ist.
+- Du musst beim Start &root verwenden weil curr ein Node Pointer ist, das heißt curr kann nur eine Speicheradresse enthalten.
+  Und weil root die ganze Struktur ist musst du das & verwenden, damit du die Speicheradresse von root bekommst
 
 ```c
 int main(void)
