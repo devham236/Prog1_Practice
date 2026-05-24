@@ -40,7 +40,7 @@ printf("Second element: %d \n", root.next->value);
 
 ### Iterieren
 
-- Um durch eine linked list mit einem while loop zu iterieren, brauchst du erstmal einen Start, eine Abbruchbedingung und etwas was bei jedem Schritt passieren soll
+- Um durch eine linked list mit einem **while loop** zu iterieren, brauchst du erstmal einen Start, eine Abbruchbedingung und etwas was bei jedem Schritt passieren soll
 - Du willst ja bei der root anfangen und dann jede Node durchgehen, also musst du in jedem Schritt dein curr auf die näcshte Node setzen, bis die aktuelle Node NULL ist.
 - Du musst beim Start &root verwenden weil curr ein Node Pointer ist, das heißt curr kann nur eine Speicheradresse enthalten.
   Und weil root die ganze Struktur ist musst du das & verwenden, damit du die Speicheradresse von root bekommst
@@ -73,6 +73,37 @@ int main(void)
 
         // Iterationsschritt
         curr = curr->next;
+    }
+
+    free(root.next->next);
+    free(root.next);
+    return 0;
+}
+```
+
+- Mit einem for loop durch eine linked list zu iterieren funktioniert eigentlich sehr ähnlich, du nimmst deinen Start, die Abbruchbedindung und den Iterationschritt und legst alles in die Klammer
+
+```c
+int main(void)
+{
+    // root element
+    Node root;
+    root.value = 5;
+
+    // zweites element
+    root.next = malloc(sizeof(Node));
+    root.next->value = 10;
+
+    // drittes element
+    root.next->next = malloc(sizeof(Node));
+    root.next->next->value = 4;
+
+    // letztes element
+    root.next->next->next = NULL;
+
+    for (Node *curr = &root; curr != NULL; curr = curr->next)
+    {
+        printf("%d \n", curr->value);
     }
 
     free(root.next->next);

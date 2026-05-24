@@ -24,12 +24,9 @@ int main(void)
     // letztes element
     root.next->next->next = NULL;
 
-    Node *curr = &root;
-
-    while (curr != NULL)
+    for (Node *curr = &root; curr != NULL; curr = curr->next)
     {
         printf("%d \n", curr->value);
-        curr = curr->next;
     }
 
     free(root.next->next);
