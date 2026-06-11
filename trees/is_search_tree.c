@@ -47,6 +47,7 @@ bool is_search_tree(Tree *t)
     {
         return true;
     }
+
     return is_search_tree_recursive(t, INT_MIN, INT_MAX);
 }
 
