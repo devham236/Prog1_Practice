@@ -1,4 +1,4 @@
-* [ ] Aufgabe 1 ascendingNumbersinString
+* [x] Aufgabe 1 ascendingNumbersinString
   * Schreiben Sie eine Funktion, die überprüft, ob in einem String 4 aufeinanderfolgende aufsteigende Zahlen auftreten. Beispielsweise "as5678e". (main Funktion mit Tests gegeben)
 * [ ] Aufgabe 2 wildCardMatch hom
   * Prüfen ob ein string t in einem string s vorkommt. string t kann zudem m '?' als wildchar (beliebiger character) erhalten Bei den Testfällen gab es zudem den Fall dass der String '' geprüft werden musste - mit dem erwarteten Ergebnis true. '' Ist die binäre Null, der String ist damit nicht leer... Dazu die Abfrage t[0] == '\\0'
