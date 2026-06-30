@@ -1,4 +1,4 @@
-## How to
+# How to
 
 - Wenn du zwei Kindknoten vergleichen musst, kannst du eigentlich immer nur ein if aufstellen nach deiner Abbruchbedingung und erstmal überprüfen ob beide nicht null sind und dann das was in der Aufgabe verlangt wird überprüfen:
 
