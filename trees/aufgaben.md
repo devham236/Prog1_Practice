@@ -2,7 +2,7 @@
   * Knoten auf der Konsole ausgeben, die sowohl über einen linken, als auch einen rechten Nachfolger verfügen und deren rechter Nachfolger größer ist als der linke Nachfolger. Nehmen Sie dabei an, dass der Baum unsortiert ist.
 * [x] Aufgabe 2 equalChildNodes
   * Schreiben Sie eine Methode, die überprüft, ob ein Child-Node in einem Binärbaum den gleichen Wert hat wie sein Parent-Node. Sie dürfen dazu eine Hilfsmethode schreiben. (Restliche Funktionalität des Binärbaums und Tests gegeben)
-* [ ] Aufgabe 3 changingSign
+* [x] Aufgabe 3 changingSign
   * Schreiben Sie eine Methode, die zurückgibt, wie häufig es Child- und Parent-Nodes gibt, bei denen sich das Vorzeichen unterscheidet.
 * [ ] Aufgabe 4 zeroSumTree
   * Überprüft, ob Knotensumme im Baum == 0, also alle Knoten haben 0 als value oder komplett leer.
