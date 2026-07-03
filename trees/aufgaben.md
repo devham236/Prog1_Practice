@@ -4,7 +4,7 @@
   * Schreiben Sie eine Methode, die überprüft, ob ein Child-Node in einem Binärbaum den gleichen Wert hat wie sein Parent-Node. Sie dürfen dazu eine Hilfsmethode schreiben. (Restliche Funktionalität des Binärbaums und Tests gegeben)
 * [x] Aufgabe 3 changingSign
   * Schreiben Sie eine Methode, die zurückgibt, wie häufig es Child- und Parent-Nodes gibt, bei denen sich das Vorzeichen unterscheidet.
-* [ ] Aufgabe 4 zeroSumTree
+* [x] Aufgabe 4 zeroSumTree
   * Überprüft, ob Knotensumme im Baum == 0, also alle Knoten haben 0 als value oder komplett leer.
 * [ ] Aufgabe 5 monoTree
   * Prüfe ob ein Binärbaum monoton ist (parent < children)
