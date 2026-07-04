@@ -9,6 +9,34 @@
 
 bool wildCardMatch(char s[], char t[])
 {
+    if (t[0] == '\0')
+    {
+        return true;
+    }
+
+    if(s_length(t) > s_length(s)){
+        return false;
+    }
+
+    for (int i = 0; i < s_length(s); i++)
+    {
+        bool match = true;
+
+        for (int j = 0; j < s_length(t); j++)
+        {
+            if (s[i + j] != t[j] && t[j] != '?')
+            {
+                match = false;
+                break;
+            }
+        }
+
+        if (match)
+        {
+            return true;
+        }
+    }
+
     return false;
 }
 
