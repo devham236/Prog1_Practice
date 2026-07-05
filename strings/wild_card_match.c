@@ -9,8 +9,7 @@
 
 bool wildCardMatch(char s[], char t[])
 {
-    if (t[0] == '\0')
-    {
+    if(t[0] == '\0'){
         return true;
     }
 
@@ -18,21 +17,16 @@ bool wildCardMatch(char s[], char t[])
         return false;
     }
 
-    for (int i = 0; i < s_length(s); i++)
-    {
+    for(int i = 0; i < s_length(s); i++){
         bool match = true;
-
-        for (int j = 0; j < s_length(t); j++)
-        {
-            if (s[i + j] != t[j] && t[j] != '?')
-            {
+        for(int j = 0; j < s_length(t); j++){
+            if(s[i+j] != t[j] && t[j] != '?'){
                 match = false;
                 break;
             }
         }
 
-        if (match)
-        {
+        if(match){
             return true;
         }
     }
