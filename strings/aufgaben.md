@@ -2,7 +2,7 @@
   * Schreiben Sie eine Funktion, die überprüft, ob in einem String 4 aufeinanderfolgende aufsteigende Zahlen auftreten. Beispielsweise "as5678e". (main Funktion mit Tests gegeben)
 * [x] Aufgabe 2 wildCardMatch hom
   * Prüfen ob ein string t in einem string s vorkommt. string t kann zudem m '?' als wildchar (beliebiger character) erhalten Bei den Testfällen gab es zudem den Fall dass der String '' geprüft werden musste - mit dem erwarteten Ergebnis true. '' Ist die binäre Null, der String ist damit nicht leer... Dazu die Abfrage t[0] == '\\0'
-* [ ] Aufgabe 3 sequencePosition
+* [x] Aufgabe 3 sequencePosition
   * Implementieren Sie die Funktion in sequencePosition(String s, String t). Diese soll die Indexposition des ersten Auftretens von t in s zurückgeben(-1 falls t nicht in s vorkommt). Dabei sind '?' Jokerzeichen(wildcards). Ein ? in t bedeutet, dass das zugehörige Zeichen in s ein beliebiges(einzelnes) Zeichen sein darf.
 * [ ] Aufgabe 4 firstEqualsLast
   * firstEqualsLast(String s) Gibt true zurück, wenn das erste und letzte Zeichen im String gleich sind
