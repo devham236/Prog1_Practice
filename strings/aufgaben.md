@@ -6,7 +6,7 @@
   * Implementieren Sie die Funktion in sequencePosition(String s, String t). Diese soll die Indexposition des ersten Auftretens von t in s zurückgeben(-1 falls t nicht in s vorkommt). Dabei sind '?' Jokerzeichen(wildcards). Ein ? in t bedeutet, dass das zugehörige Zeichen in s ein beliebiges(einzelnes) Zeichen sein darf.
 * [x] Aufgabe 4 firstEqualsLast
   * firstEqualsLast(String s) Gibt true zurück, wenn das erste und letzte Zeichen im String gleich sind
-* [ ] Aufgabe 5 repeatingChar
+* [x] Aufgabe 5 repeatingChar
   * wie oft der gleiche Buchstabe im String vorkommt
 * [ ] Aufgabe 6 camelcase hom
   * strings mit xmalloc kopieren über string laufen und alle lowercases in string direkt übergeben, leerzeichen auch, uppercases je nach position übergeben oder zu "_x" transformieren. die zusätzliche größenveränderung beim allocieren natürlich vorher beachten
