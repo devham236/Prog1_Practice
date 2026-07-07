@@ -40,7 +40,7 @@
     * "1abc" --> "1"
     * "x11" --> "11"
     * "1a2b3c4d" --> "1234"
-* [ ] Aufgabe 8 autoCorrectCases
+* [x] Aufgabe 8 autoCorrectCases
   * ersten Buchstaben eines Wortes groß den Rest klein
     * Eingabe: HELLO WORLD
     * Ausgabe: Hello World
