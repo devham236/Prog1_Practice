@@ -8,7 +8,7 @@
   * firstEqualsLast(String s) Gibt true zurück, wenn das erste und letzte Zeichen im String gleich sind
 * [x] Aufgabe 5 repeatingChar
   * wie oft der gleiche Buchstabe im String vorkommt
-* [ ] Aufgabe 6 camelcase hom
+* [x] Aufgabe 6 camelcase hom
   * strings mit xmalloc kopieren über string laufen und alle lowercases in string direkt übergeben, leerzeichen auch, uppercases je nach position übergeben oder zu "_x" transformieren. die zusätzliche größenveränderung beim allocieren natürlich vorher beachten
   * Originalstring nicht verändern
   * Rückgabestring dynmanisch allokieren
