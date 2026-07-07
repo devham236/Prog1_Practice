@@ -26,7 +26,7 @@
     * ABCD --> A_b_c_d
     * ABCDEF --> A_b_c_d_e_f
     * ABCD EF --> A_b_c_d E_f
-* [ ] Aufgabe 7 removeletters
+* [x] Aufgabe 7 removeletters
   * nur mit hilfsfunktionen strings in exakt größen allokierten copy string übertragen, alles was letters sind ignorieren.
   * Zahlen aus String rausschreiben
   * Originalstring nicht verändern
