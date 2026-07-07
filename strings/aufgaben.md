@@ -46,7 +46,7 @@
     * Ausgabe: Hello World
 * [ ] Aufgabe 9 reverseString
   * Strings in einer Liste reversen
-* [ ] Aufgabe 10 removeChars
+* [x] Aufgabe 10 removeChars
   * Chars aus einem String entfernen
 * [ ] Aufgabe 11 stringDifference
   * 2 Strings gegeben.
