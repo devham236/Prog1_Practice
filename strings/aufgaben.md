@@ -48,7 +48,7 @@
   * Strings in einer Liste reversen
 * [x] Aufgabe 10 removeChars
   * Chars aus einem String entfernen
-* [ ] Aufgabe 11 stringDifference
+* [x] Aufgabe 11 stringDifference
   * 2 Strings gegeben.
   * Alle chars die in String 1 vorkommen, aber nicht in String 2 in einen neuen allokierten String übergeben
 * [ ] Aufgabe 12 countedUpperLower
