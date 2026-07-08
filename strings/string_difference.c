@@ -38,22 +38,6 @@ int countDiffChars(char *str1, char *str2)
     return count;
 }
 
-char *duplicateString(char *str)
-{
-    char *result = malloc(s_length(str) + 1);
-
-    int j = 0;
-    for (int i = 0; i < s_length(str); i++)
-    {
-        result[j] = str[i];
-        j++;
-    }
-
-    result[j] = '\0';
-
-    return result;
-}
-
 char *stringDiff(char *string1, char *string2)
 {
     int length = countDiffChars(string1, string2);
