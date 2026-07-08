@@ -6,9 +6,9 @@
   * Schreiben Sie eine Methode, die zurückgibt, wie häufig es Child- und Parent-Nodes gibt, bei denen sich das Vorzeichen unterscheidet.
 * [x] Aufgabe 4 zeroSumTree
   * Überprüft, ob Knotensumme im Baum == 0, also alle Knoten haben 0 als value oder komplett leer.
-* [ ] Aufgabe 5 monoTree
+* [x] Aufgabe 5 monoTree
   * Prüfe ob ein Binärbaum monoton ist (parent < children)
-* [ ] Aufgabe 6 sumInnerNodes
+* [x] Aufgabe 6 sumInnerNodes
   * Summe aller internen Knoten die Kindknoten haben
 * [ ] Aufgabe 7 sumRightNodes
   * Summe aller rechten Nachfolger
