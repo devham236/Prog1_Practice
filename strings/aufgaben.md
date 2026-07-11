@@ -59,7 +59,7 @@
   * Verschlüsselung von Buchstaben in einem String (Caesar Alg). Alle Kleinbuchstaben(!) sollten um 5 chars verschoben werden (War so ziemlich das gleiche wie in Assignment 6 glaube ich) Nur s_length/xmalloc/strlen
 * [x] Aufgabe 15 trimString
   * Leerzeichen am Anfang/Ende eines Strings entfernen. Es darf nur s_length/xmalloc/strlen verwendet werden aus der prog1lib (Also kein s_trim)
-* [ ] Aufgabe 16 shortestOrder
+* [x] Aufgabe 16 shortestOrder
   * Aus einem String die Länge der kürzesten Folge des Char c finden. Dazu noch Funktion schreiben die herausfindet ob der String mit einer Ziffer beginnt.
 * [ ] Aufgabe 17 printStrings
   * Es sind 2 Strings gegeben, wenn der eine in dem anderen vorkommt, soll der String nach dem anderen String ausgegeben werden, sonst der ursprüngliche String. Mit allokieren
