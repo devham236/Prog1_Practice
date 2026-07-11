@@ -53,7 +53,7 @@
   * Alle chars die in String 1 vorkommen, aber nicht in String 2 in einen neuen allokierten String übergeben
 * [ ] Aufgabe 12 countedUpperLower
   * String war gegeben. Sollte abwechselnd zu Upper und Lowercase gemacht werden mit bestimmter Anzahl (Also z.B. 2 Groß, 2 Klein)
-* [ ] Aufgabe 13 countString
+* [x] Aufgabe 13 countString
   * Implementieren Sie die Funktion "int count_target_string(char \*text, char \*string)", die zählt, wie oft "string" in "text" vorkommt. Es darf nur gezählt werden, wenn "string" von Leerzeichen umschlossen wird bzw. wenn es am Ende / am Anfang steht. Gehen Sie davon aus, dass nur Kleinbuchstaben und Leerzeichen vorkommen. Sie dürfen nur selbst programmierte Hilfsfunktionen und strlen() und strncmp() verwenden. Beispiele (Testfälle waren in der .c-Datei bereits programmiert): count_target_string("abc of", "of") -> 1 count_target_string("abcof", "of") -> 0 count_target_string("ofabc", "of") -> 0 count_target_string("of abc", "of") -> 1 count_target_string("abc of abc of", "of") -> 2
 * [ ] Aufgabe 14 rot3
   * Verschlüsselung von Buchstaben in einem String (Caesar Alg). Alle Kleinbuchstaben(!) sollten um 5 chars verschoben werden (War so ziemlich das gleiche wie in Assignment 6 glaube ich) Nur s_length/xmalloc/strlen
