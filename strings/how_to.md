@@ -5,7 +5,7 @@
 - Logik der Funktion wurde in drei separaten Funktionen gelegt (match_at, is_valid_start und is_valid_end)
 - Beispieldurchlauf (test_equal_i(countTargetString("abc of", "of"), 1);):
 1. Text zeigt auf "abc of", string zeigt auf "of"
-2. Es wird durch text geloopt und jedesmal match_at(text, string, i) audgeführt
+2. Es wird durch text geloopt und jedesmal match_at(text, string, i) ausgeführt
 3. In match_at wird mit strncmp() überprüft ob der string mit der Länge i, an der Stelle i von text anfängt bzw. gleich ist. &text[index] bedeutet der Teil des String ab der Stelle index, &text[0] = 'a...' und &text[4] = 'o...'
 4. strncmp(&text[4], "of", 2) vergleicht nun ab dieser Adresse genau 2 Zeichen mit dem Zielwort also "of" und gibt 1 wieder
 5. Jetzt wird is_valid_start und is_valid_end überprüft

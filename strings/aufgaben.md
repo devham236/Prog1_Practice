@@ -61,7 +61,7 @@
   * Leerzeichen am Anfang/Ende eines Strings entfernen. Es darf nur s_length/xmalloc/strlen verwendet werden aus der prog1lib (Also kein s_trim)
 * [x] Aufgabe 16 shortestOrder
   * Aus einem String die Länge der kürzesten Folge des Char c finden. Dazu noch Funktion schreiben die herausfindet ob der String mit einer Ziffer beginnt.
-* [ ] Aufgabe 17 printStrings
+* [x] Aufgabe 17 printStrings
   * Es sind 2 Strings gegeben, wenn der eine in dem anderen vorkommt, soll der String nach dem anderen String ausgegeben werden, sonst der ursprüngliche String. Mit allokieren
 * [ ] Aufgabe 18 maxOneChar
   * Prüfen ob String mit : anfängt oder aufhört, maximal 1x: hat, sonst nur aus kleinen Buchstaben besteht und mindestens einen kleinen Buchstaben hat
