@@ -67,5 +67,5 @@
   * Prüfen ob String mit : anfängt oder aufhört, maximal 1x: hat, sonst nur aus kleinen Buchstaben besteht und mindestens einen kleinen Buchstaben hat
 * [x] Aufgabe 19 slashRemover
   * Für *buchstabe neuen String allokieren und "*" entfernen und den ersten Buchstaben nach "_" groß Schreiben.
-* [ ] Aufgabe 20 ßtoDoubleS
+* [x] Aufgabe 20 ßtoDoubleS
   * ss in einem String mit ß ersetzen. const String sz = „ß“ war gegeben. Anmerkung in der Aufgabe: strlen(ß) = 2. inplace oder neu allokieren, mit strcpy()
