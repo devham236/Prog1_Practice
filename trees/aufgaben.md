@@ -10,7 +10,7 @@
   * Prüfe ob ein Binärbaum monoton ist (parent < children)
 * [x] Aufgabe 6 sumInnerNodes
   * Summe aller internen Knoten die Kindknoten haben
-* [ ] Aufgabe 7 sumRightNodes
+* [x] Aufgabe 7 sumRightNodes
   * Summe aller rechten Nachfolger
 * [ ] Aufgabe 8 heightTree
   * Berechne die Tiefe eines Baumes.
