@@ -12,7 +12,7 @@
   * Summe aller internen Knoten die Kindknoten haben
 * [x] Aufgabe 7 sumRightNodes
   * Summe aller rechten Nachfolger
-* [ ] Aufgabe 8 heightTree
+* [x] Aufgabe 8 heightTree
   * Berechne die Tiefe eines Baumes.
 * [ ] Aufgabe 9 arithmeticTree
   * Ergebnis eines arithmetischen Baumes berechnen. Im Knoten stehen Zahlen oder Operatoren
