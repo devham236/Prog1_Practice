@@ -126,3 +126,62 @@ int main()
     return 0;
 }
 ```
+
+### chars in einem String verschieben und den Rest nachrücken
+
+- Um in einem String ein paar chars zu verschieben ist es fast immer notwending das du einen char temporär speicherst um ihn später zu verwenden
+- Und das du bestimmst ob man alles nach links oder rechts verschiebt.
+- Beispieldurchlauf:
+```c
+char test4[] = "abc";
+test_equal_s(shiftCharAtIndex(test4, 0, 4), "bac");
+```
+1. Zuerst wird der char am übergebenen Index 0 vom inputString in temp gespeichert, also 'a', weil wir den später am Ziel Index legen wollen.
+2. Dann wird der neue Index berechnet, hier verwendet man am besten den Modulo Operator weil du dann genau weißt was der neue Index ist, auch wenn der shift Wert größer als die Länge des Strings ist. Ist so wie bei der Cypher Aufgabe in Java, da hast du ja auch das ganze erstmal mathematisch gelöst, mit Rest berechnen und dann auf den Anfang des Intervalls dazurechnen, mit modulo ist es einfacher
+newIndex ist also (0 + 4) % 3 = 1
+3. Das 'a' muss also auf index 1
+4. newIndex ist größer als index, also wird der erste if Block ausgeführt. 
+5. Der Loop darin läuft nur einmal weil 0 < 1, also ist der char am index 0 vom inputString gleich dem nächsten char im inputString also i+1, nach dem loop ist der string erstmal "bbc"
+6. Dann nehmen setzen wir den anfangs gespeicherten char in der temp Variable und legen den in den inputString am index 1, also newIndex
+7. Der String am Ende ist dann "bac"
+
+```c
+char *shiftCharAtIndex(char *inputString, int index, int shift)
+{
+    int length = s_length(inputString);
+
+    if (length == 0)
+    {
+        return "";
+    }
+
+    if (length == 1)
+    {
+        return inputString;
+    }
+
+    char temp = inputString[index];
+
+    int newIndex = (index + shift) % length;
+
+    if (newIndex > index)
+    {
+        for (int i = index; i < newIndex; i++)
+        {
+            inputString[i] = inputString[i + 1];
+        }
+    }
+
+    if (newIndex < index)
+    {
+        for (int i = index; i > newIndex; i--)
+        {
+            inputString[i] = inputString[i - 1];
+        }
+    }
+
+    inputString[newIndex] = temp;
+
+    return inputString;
+}
+```
