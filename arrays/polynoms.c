@@ -19,16 +19,9 @@
 
 void derivePolynoms(int length, int *polynoms, int *result)
 {
-    int j = 0;
-    for (int i = 0; i < length; i++)
+    for (int i = 1; i < length; i++)
     {
-        printf("num: %d, index: %d\n", polynoms[i], i);
-        int deriv = polynoms[i] * i;
-        if (deriv != 0)
-        {
-            result[j] = deriv;
-            j++;
-        }
+        result[i - 1] = polynoms[i] * i;
     }
 }
 
