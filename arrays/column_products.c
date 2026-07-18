@@ -11,6 +11,9 @@ und gib ein Array mit diesen Produkten zurück.
 
 int *column_products(int rows, int cols, int a[rows][cols])
 {
+    int* result = xmalloc(rows * cols * sizeof(int));
+
+    return result;
 }
 
 // ================== TESTS ==================
