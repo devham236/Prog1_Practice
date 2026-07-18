@@ -1,6 +1,5 @@
 // make column_products && ./column_products
 
-#include "base.h"
 
 /*
 Aufgabe:
@@ -13,20 +12,6 @@ und gib ein Array mit diesen Produkten zurück.
 
 int* column_products(int rows, int cols, int a[rows][cols]) {
 
-    int* result = xmalloc(sizeof(int) * cols);
-
-    for (int c = 0; c < cols; c++) {
-
-        int product = 1;
-
-        for (int r = 0; r < rows; r++) {
-            product *= a[r][c];
-        }
-
-        result[c] = product;
-    }
-
-    return result;
 }
 
 
