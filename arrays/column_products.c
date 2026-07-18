@@ -11,7 +11,19 @@ und gib ein Array mit diesen Produkten zurück.
 
 int *column_products(int rows, int cols, int a[rows][cols])
 {
-    int* result = xmalloc(rows * cols * sizeof(int));
+    int *result = xmalloc(cols * sizeof(int));
+
+    for (int i = 0; i < cols; i++)
+    {
+        int col_result = 1;
+        for (int j = 0; j < rows; j++)
+        {
+            col_result *= a[j][i];
+        }
+
+        result[i] = col_result;
+    }
+    printf("Länge der result array: %d\n", cols);
 
     return result;
 }
