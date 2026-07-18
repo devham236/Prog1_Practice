@@ -2,7 +2,7 @@
   * Array mit bubbleSort sortieren
 * [x] Aufgabe 2 arrayAnalyzer
   * 2D-Matrix mit Buchstaben und - gegeben, Anzahl der gegebenen chars pro Spalte in 1D-Array speichern Eingabe 2D Array, a a - a a --> 3 b - - - --> 0 --> [3,0] Rückgabe Array
-* [ ] Aufgabe 3 polynoms
+* [x] Aufgabe 3 polynoms
   * (Original-Formulierung war sehr kompliziert und abschreckend, sinngemäß war folgendes gefordert): implementieren Sie die Funktion "void derive\*polynoms(int \*polynoms, int \_results)", die Ableitung der Polynome aus dem polynoms-Array in das results-Array schreibt. Hört sich erstmal schrecklich kompliziert anschauen wir uns an, was die eigentlich von uns wollen: ein Array { 1, 2, 3 } bspw. soll "übersetzt" bedeuten f(x) = 1 \_ x⁰ + 2 \_ x¹ + 3 \_ x². Leitet man das ab, erhält man f'(x) = 2 \_ x⁰ + 6 \* x¹. Das results-Array soll also für results[0] die 2 enthalten und für results[1] die 6. Angegeben waren noch weitere Testfälle, die allesamt aber ähnlich waren. Kann mich an keinen "komplizierten" Testfall erinnern. Im Endeffekt war das ein 3-Zeiler - [ ] wenn man sich von der zunächst kompliziert erscheinenden Aufgabenstellung nicht abschrecken ließ. Zusatzbemerkungen: als Editor musste kWrite eingesetzt werden. Als Desktop- Umgebung wurde GNOME 3 (Linux) verwendet. Die Kompilierung erfolgte mittels Makefiles. Die gesamte Klausur war lösbar, ohne dass man selbst irgendeine prog1lib-Funktion verwenden musste.
 * [ ] Aufgabe 4 intOption
 

@@ -52,3 +52,47 @@ void test_column_products(void)
     test_equal_i(r[1], 15);
 }
 ```
+
+### Array wird "flach" übergeben und spaltenweise/zeilenweise etwas berechnen
+- Wenn du das array "flach" übergeben bekommst, also einen Pointer auf den Anfang der Kette, dann kannst du nicht mehr a[j][i] verwenden, a liegt als eine lange Kette vor, wie halt 2D Arrays gespeichert werden.
+- Beim Beispiel oben wird ja in den tests einfach a übergeben, hier ist es aber (int*) a, a wird also zu einem int pointer getypecasted.
+- Um hier jetzt Spaltenweise etwas zu berechnen musst du a[j*cols+i]
+- Bei zeilenweiser Berechnung gehst du erstmal durch rows und dann durch cols und vertauschst einfach j und i, also a[i*cols+j]
+- Merk dir einfach, spaltenweise = J.Cole + i und zeilenweise einfach erstmal durch rows und dann durch cols und dann a[i*cols+j]
+
+```c
+int *col_prod(int *a, int rows, int cols)
+{
+    int *result = xmalloc(cols * sizeof(int));
+
+    for (int i = 0; i < cols; i++)
+    {
+        int count = 1;
+        for (int j = 0; j < rows; j++)
+        {
+            count *= a[(j * cols) + i];
+        }
+        result[i] = count;
+    }
+
+    return result;
+}
+
+void test(void)
+{
+    // ================== TEST 1: Dein Original-Beispiel (3x3 mit negativen Zahlen) ==================
+    int a[3][3] = {
+        {1, 2, 3},
+        {-1, -2, -3},
+        {3, 4, 5},
+    };
+
+    int *r1 = col_prod((int *)a, 3, 3);
+
+    test_equal_i(r1[0], -3);
+    test_equal_i(r1[1], -16);
+    test_equal_i(r1[2], -45);
+
+    free(r1);
+}
+```
