@@ -185,3 +185,69 @@ char *shiftCharAtIndex(char *inputString, int index, int shift)
     return inputString;
 }
 ```
+
+### Bestimmen welches Zeichen im String am seltensten vorkommt
+- Erstellt sich erstmal ein großes Array mit 256 Plätzen, wo jeder Eintrag eine 0 ist, für alle ASCII Zeichen die vorkommen könnten
+- chars sind unter der Haube einfach nur Zahlen -> 'A' = 65, 'B' = 66 ....
+- Dann geht man durch den übergebenen String und erhöht das was an der Stelle für dieses ASCII Zeichen steht den Wert um eins -> ascii_arr[s[0]]++ -> ascii_arr['a']++
+- Das heißt du hast ein großes Array, das dir sagt welches zeichen wie oft vorkommt, beim Test "aabbc" ist ascii_arr['a'] = 2, ascii_arr['b'] = 2 und ascii_arr['c'] = 1
+- Dann gehst du nochmal durch den String und guckst ob der Zählwert vom aktuellen char größer kleiner oder gleich dem des vorher gespeicherten ist.
+
+
+```c
+char least_repeated_char(char *s, int *count)
+{
+    if (s[0] == '\0')
+    {
+        *count = 0;
+        return '\0';
+    }
+
+    int ascii_arr[256] = {0};
+
+    for (int i = 0; s[i] != '\0'; i++)
+    {
+        ascii_arr[s[i]]++;
+    }
+
+    char least_c = s[0];
+    int min = ascii_arr[s[0]];
+
+    for (int i = 0; s[i] != '\0'; i++)
+    {
+        char curr = s[i];
+
+        if (ascii_arr[curr] < min)
+        {
+            min = ascii_arr[curr];
+            least_c = curr;
+        }
+    }
+
+    *count = min;
+    return least_c;
+}
+
+// ================== TESTS ==================
+
+void test_least_repeated_char(void)
+{
+
+    int c;
+
+    test_equal_c(least_repeated_char("aabbc", &c), 'c');
+    test_equal_i(c, 1);
+
+    test_equal_c(least_repeated_char("abacbbd", &c), 'c');
+    test_equal_i(c, 1);
+
+    test_equal_c(least_repeated_char("aaaa", &c), 'a');
+    test_equal_i(c, 4);
+
+    test_equal_c(least_repeated_char("abc", &c), 'a');
+    test_equal_i(c, 1);
+
+    test_equal_c(least_repeated_char("", &c), '\0');
+    test_equal_i(c, 0);
+}
+```
