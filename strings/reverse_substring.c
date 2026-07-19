@@ -21,18 +21,14 @@ void reverse_substring(char *s, int start, int len)
     int left = start;
     int right = (start + len) - 1;
 
-    while(left < right){
+    while (left < right)
+    {
         char temp = s[left];
         s[left] = s[right];
         s[right] = temp;
         left++;
         right--;
     }
-
-    // for (int i = start; i < start + len; i++)
-    // {
-    //     printf("%c\n", s[i]);
-    // }
 }
 
 void test_reverse_substring(void)
