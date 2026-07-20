@@ -1,22 +1,57 @@
 // run make rotate_array_left && ./rotate_array_left
 #include "base.h"
 
-void rotate_array_left(int* a, int n) {
-    require_not_null(a);
-    require("not negative", n >= 0);
+int get_first_element(int *a, int n)
+{
+    int val = a[0];
+    return val;
 }
 
-void test_rotate_array_left(void) {
+void shift_second_to_first(int *a, int n)
+{
+    a[0] = a[1];
+}
+
+void copy_neighbors_left(int *a, int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        a[i] = a[i + 1];
+    }
+}
+
+void rotate_array_left(int *a, int n)
+{
+    require_not_null(a);
+    require("not negative", n >= 0);
+
+    if (n == 1)
+    {
+        return;
+    }
+
+    int temp = a[0];
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        a[i] = a[i + 1];
+    }
+
+    a[n - 1] = temp;
+}
+
+void test_rotate_array_left(void)
+{
     {
         // Test case 1: single-element array (n = 1)
-        int a[] = { 9 };
+        int a[] = {9};
         int n = 1;
         rotate_array_left(a, n);
         test_equal_i(a[0], 9);
     }
     {
         // Test case 2: two-element array (n = 2)
-        int b[] = { 9, 1 };
+        int b[] = {9, 1};
         int n = 2;
         rotate_array_left(b, n);
         test_equal_i(b[0], 1);
@@ -24,7 +59,7 @@ void test_rotate_array_left(void) {
     }
     {
         // Test case 3: five-element array using distinct values
-        int c[] = { 10, 20, 30, 40, 50 };
+        int c[] = {10, 20, 30, 40, 50};
         int n = 5;
         rotate_array_left(c, n);
         test_equal_i(c[0], 20);
@@ -35,7 +70,7 @@ void test_rotate_array_left(void) {
     }
     {
         // Test case 4: five-element array with sequential values
-        int d[] = { 1, 2, 3, 4, 5 };
+        int d[] = {1, 2, 3, 4, 5};
         int n = 5;
         rotate_array_left(d, n);
         test_equal_i(d[0], 2);
@@ -46,7 +81,7 @@ void test_rotate_array_left(void) {
     }
     {
         // Test case 5: ten-element array
-        int e[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        int e[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         int n = 10;
         rotate_array_left(e, n);
         test_equal_i(e[0], 1);
@@ -62,7 +97,8 @@ void test_rotate_array_left(void) {
     }
 }
 
-int main(void) {
+int main(void)
+{
     test_rotate_array_left();
     report_memory_leaks(true);
     return 0;
