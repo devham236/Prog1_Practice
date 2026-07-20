@@ -74,3 +74,27 @@ int changingSign(IntTree *node)
     return 0;
 }
 ```
+
+### Größte Pfadsumme (von Wurzel) berechnen
+
+- Ein Pfad von der Wurzel aus geht immer bis zum letzten Knoten, der keine Kinder mehr hat
+- Jeder Teilbaum guckt welches Kind größer ist, links oder rechts und wählt dann das größere aus und addiert den eigenen Knotenwert dazu und schiebt es weiter nach oben.
+
+```c
+int max_path_sum(Tree *t)
+{
+    if (t == NULL)
+    {
+        return 0;
+    }
+
+    if (t->left == NULL && t->right == NULL)
+    {
+        return t->value;
+    }
+    int left_tree = max_path_sum(t->left);
+    int right_tree = max_path_sum(t->right);
+
+    return max(left_tree, right_tree) + t->value;
+}
+```
