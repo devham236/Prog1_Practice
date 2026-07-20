@@ -36,33 +36,7 @@ Ein leerer Baum liefert 0.
 
 int max_path_sum(Tree* t) {
 
-    if (t == NULL) {
-        return 0;
-    }
-
-    // Blatt
-    if (t->left == NULL && t->right == NULL) {
-        return t->value;
-    }
-
-    // nur rechter Teilbaum vorhanden
-    if (t->left == NULL) {
-        return t->value + max_path_sum(t->right);
-    }
-
-    // nur linker Teilbaum vorhanden
-    if (t->right == NULL) {
-        return t->value + max_path_sum(t->left);
-    }
-
-    int left_sum = max_path_sum(t->left);
-    int right_sum = max_path_sum(t->right);
-
-    if (left_sum > right_sum) {
-        return t->value + left_sum;
-    } else {
-        return t->value + right_sum;
-    }
+    return 0;
 }
 
 
