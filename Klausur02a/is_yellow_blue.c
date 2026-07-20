@@ -29,7 +29,22 @@ Tree *newNode(Colour colour)
 
 bool is_yellow_blue(Tree *t)
 {
-    return false;
+    if (t == NULL)
+    {
+        return true;
+    }
+
+    if (t->left != NULL && t->left->colour == t->colour)
+    {
+        return false;
+    }
+
+    if (t->right != NULL && t->right->colour == t->colour)
+    {
+        return false;
+    }
+
+    return is_yellow_blue(t->left) && is_yellow_blue(t->right);
 }
 
 void test_is_yellow_blue(void)
