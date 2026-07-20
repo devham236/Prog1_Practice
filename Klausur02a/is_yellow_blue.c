@@ -34,23 +34,47 @@ bool is_yellow_blue(Tree *t)
 
 void test_is_yellow_blue(void)
 {
-    // Test case 1: empty tree.
+    // ---------------------------------------------------------
+    // Test case 1: Leerer Baum
+    //
+    //       NULL
+    // ---------------------------------------------------------
     Tree *t1 = NULL;
     test_equal_b(is_yellow_blue(t1), true);
 
-    // Test case 2: balanced tree with valid colours.
+    // ---------------------------------------------------------
+    // Test case 2: Balancierter Baum mit gültigen Farben
+    //
+    //              (BLUE)
+    //             /      \
+    //        (YELLOW)  (YELLOW)
+    // ---------------------------------------------------------
     Tree *t2 = newNode(BLUE);
     t2->left = newNode(YELLOW);
     t2->right = newNode(YELLOW);
     test_equal_b(is_yellow_blue(t2), true);
 
-    // Test case 3: balanced tree with invalid colours (one child same as parent).
+    // ---------------------------------------------------------
+    // Test case 3: Ungültig (linkes Kind hat dieselbe Farbe wie die Wurzel)
+    //
+    //              (BLUE)
+    //             /      \
+    //        (BLUE)    (YELLOW)   <-- Fehler: BLUE hat BLUE als Kind
+    // ---------------------------------------------------------
     Tree *t3 = newNode(BLUE);
     t3->left = newNode(BLUE);
     t3->right = newNode(YELLOW);
     test_equal_b(is_yellow_blue(t3), false);
 
-    // Test case 4: deeper tree (valid).
+    // ---------------------------------------------------------
+    // Test case 4: Tieferer Baum (perfekt alternierend)
+    //
+    //               (BLUE)
+    //             /        \
+    //       (YELLOW)      (YELLOW)
+    //        /    \        /    \
+    //   (BLUE)   (BLUE) (BLUE)  (BLUE)
+    // ---------------------------------------------------------
     Tree *t4 = newNode(BLUE);
     t4->left = newNode(YELLOW);
     t4->right = newNode(YELLOW);
@@ -60,7 +84,13 @@ void test_is_yellow_blue(void)
     t4->right->right = newNode(BLUE);
     test_equal_b(is_yellow_blue(t4), true);
 
-    // Test case 5: tree with a single child (valid).
+    // ---------------------------------------------------------
+    // Test case 5: Baum mit nur einem Kind (gültig)
+    //
+    //              (BLUE)
+    //             /
+    //        (YELLOW)
+    // ---------------------------------------------------------
     Tree *t5 = newNode(BLUE);
     t5->left = newNode(YELLOW);
     test_equal_b(is_yellow_blue(t5), true);
