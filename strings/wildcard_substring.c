@@ -11,24 +11,34 @@ Aufgabe:
 und passt zu jedem beliebigen Zeichen.
 */
 
-bool wildcard_substring(char* s, char* t) {
-
-    if (s == NULL || t == NULL) {
+bool wildcard_substring(char *s, char *t)
+{
+    if (s_length(t) > s_length(s))
+    {
         return false;
     }
 
-    for (int i = 0; s[i] != '\0'; i++) {
+    if (t[0] == '\0')
+    {
+        return true;
+    }
 
-        int j = 0;
+    for (int i = 0; s[i] != '\0'; i++)
+    {
+        bool match = true;
 
-        while (t[j] != '\0'
-            && s[i + j] != '\0'
-            && (t[j] == '?' || t[j] == s[i + j])) {
+        for (int j = 0; t[j] != '\0'; j++)
+        {
 
-            j++;
+            if (s[i + j] != t[j] && t[j] != '?')
+            {
+                match = false;
+                break;
+            }
         }
 
-        if (t[j] == '\0') {
+        if (match)
+        {
             return true;
         }
     }
@@ -36,10 +46,10 @@ bool wildcard_substring(char* s, char* t) {
     return false;
 }
 
-
 // ================== TESTS ==================
 
-void test_wildcard_substring(void) {
+void test_wildcard_substring(void)
+{
 
     test_equal_b(wildcard_substring("abcdef", "cd?"), true);
     test_equal_b(wildcard_substring("abcdef", "c?e"), true);
@@ -58,10 +68,10 @@ void test_wildcard_substring(void) {
     test_equal_b(wildcard_substring("abc", ""), true);
 }
 
-
 // ================== MAIN ==================
 
-int main(void) {
+int main(void)
+{
 
     test_wildcard_substring();
 
