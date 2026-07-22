@@ -2,40 +2,6 @@
 
 String compress(String s){
    
-    int count = 1; 
-    //man sollte zwingend den index für final extern festlegen, sonst rennt man in einen seg fault, keine Ahnung warum tbh
-    int final_index = 0; 
-    int len = s_length(s); 
-    String final = xmalloc(len*2 * sizeof(char)); 
-    
-    
-
-
-    for(int i = 0; i < len; i++){
-        if(s[i] == s[i+1]){
-            
-            count++; 
-            
-        }else{
-             if(count == 1){
-                //wir wollen keine 1 vor einem Buchstaben haben, wenn er nur einmal vorkommt
-                final[final_index++] = s[i]; 
-
-             }else{
-                //wenn der count >1 ist wollen wir ihn stehen haben und das machen wir über die ASCII-Tabelle 48 entspricht dabei 0 
-                final[final_index++] = 48 + count; 
-                final[final_index++] = s[i]; 
-                //wir müssen count logischerweise reseten 
-                count = 1; 
-             }
-            
-            
-        }
-    }
-    
-
-    final[final_index] = '\0'; 
-    return final; 
 }
 
 void test(){
