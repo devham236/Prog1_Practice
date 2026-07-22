@@ -276,7 +276,7 @@ char **split_string(const char *to_split, char split, int *count_out)
 
     char temp[256];
     int temp_index = 0;
-    int j = 0;
+    int j = 0; // der ist for die result array
     for (int i = 0; i < strlen(to_split); i++)
     {
         char c = to_split[i];
