@@ -3,7 +3,8 @@ make array_calculate_steps && ./array_calculate_steps
 */
 #include "base.h"
 
-typedef enum operation_type_e {
+typedef enum operation_type_e
+{
     OP_SET,
     OP_ADD,
     OP_SUB,
@@ -11,20 +12,57 @@ typedef enum operation_type_e {
     OP_DIV,
 } OperationType;
 
-typedef struct operation_s {
+typedef struct operation_s
+{
     double value;
     OperationType type;
 } Operation;
 
 // <Purpose statement>
-double * calculate(double initial_value, Operation * operations, int operations_count) {
+double *calculate(double initial_value, Operation *operations, int operations_count)
+{
     // todo: implement
-    return NULL;
+    double *result = malloc(operations_count * sizeof(double));
+
+    double currResult = initial_value;
+
+    for (int i = 0; i < operations_count; i++)
+    {
+        Operation currOp = operations[i];
+
+        switch (currOp.type)
+        {
+        case OP_SET:
+            currResult = currOp.value;
+            break;
+        case OP_ADD:
+            currResult += currOp.value;
+            break;
+        case OP_SUB:
+            currResult -= currOp.value;
+            break;
+        case OP_MUL:
+            currResult *= currOp.value;
+            break;
+        case OP_DIV:
+            currResult /= currOp.value;
+            break;
+
+        default:
+            break;
+        }
+
+        result[i] = currResult;
+    }
+
+    return result;
 }
 
-void base_test_equal_array(const char * file, int line, double * a, double * b, int length) {
+void base_test_equal_array(const char *file, int line, double *a, double *b, int length)
+{
     int equal = 1;
-    for(int i = 0; i < length; i++) {
+    for (int i = 0; i < length; i++)
+    {
         equal = equal && fabs(a[i] - b[i]) < 0.001;
     }
     base_test_equal_b(file, line, equal, 1);
@@ -32,7 +70,8 @@ void base_test_equal_array(const char * file, int line, double * a, double * b, 
 
 #define test_equal_array(a, e, l) base_test_equal_array(__FILE__, __LINE__, a, e, l)
 
-void test() {
+void test()
+{
     Operation op_1[1] = {{1., OP_SET}};
     double res_1[1] = {1.};
     test_equal_array(calculate(0, op_1, 1), res_1, 1);
@@ -50,7 +89,8 @@ void test() {
     test_equal_array(calculate(0, op_4, 4), res_4, 4);
 }
 
-int main() {
+int main()
+{
     test();
     return 0;
 }
