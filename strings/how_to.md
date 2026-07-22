@@ -4,6 +4,7 @@
 
 - Logik der Funktion wurde in drei separaten Funktionen gelegt (match_at, is_valid_start und is_valid_end)
 - Beispieldurchlauf (test_equal_i(countTargetString("abc of", "of"), 1);):
+
 1. Text zeigt auf "abc of", string zeigt auf "of"
 2. Es wird durch text geloopt und jedesmal match_at(text, string, i) ausgeführt
 3. In match_at wird mit strncmp() überprüft ob der string mit der Länge i, an der Stelle i von text anfängt bzw. gleich ist. &text[index] bedeutet der Teil des String ab der Stelle index, &text[0] = 'a...' und &text[4] = 'o...'
@@ -77,6 +78,7 @@ int main(int argc, char *argv[])
 ```
 
 ### Substring in einem String
+
 - Wenn du einen bestimmten Substring in einem String suchen willst, dann musst du nested loops verwenden
 - Dieses s[i+j] gibt dir immer den Teil vom String s, der bei index i startet und bei j aufhört, wenn i = 0 ist fängst du beim ersten char von s an und gehst j Schritte bzw. so viele Schritte wie die Länge von String t ist, nach rechts
 
@@ -132,15 +134,17 @@ int main()
 - Um in einem String ein paar chars zu verschieben ist es fast immer notwending das du einen char temporär speicherst um ihn später zu verwenden
 - Und das du bestimmst ob man alles nach links oder rechts verschiebt.
 - Beispieldurchlauf:
+
 ```c
 char test4[] = "abc";
 test_equal_s(shiftCharAtIndex(test4, 0, 4), "bac");
 ```
+
 1. Zuerst wird der char am übergebenen Index 0 vom inputString in temp gespeichert, also 'a', weil wir den später am Ziel Index legen wollen.
 2. Dann wird der neue Index berechnet, hier verwendet man am besten den Modulo Operator weil du dann genau weißt was der neue Index ist, auch wenn der shift Wert größer als die Länge des Strings ist. Ist so wie bei der Cypher Aufgabe in Java, da hast du ja auch das ganze erstmal mathematisch gelöst, mit Rest berechnen und dann auf den Anfang des Intervalls dazurechnen, mit modulo ist es einfacher
-newIndex ist also (0 + 4) % 3 = 1
+   newIndex ist also (0 + 4) % 3 = 1
 3. Das 'a' muss also auf index 1
-4. newIndex ist größer als index, also wird der erste if Block ausgeführt. 
+4. newIndex ist größer als index, also wird der erste if Block ausgeführt.
 5. Der Loop darin läuft nur einmal weil 0 < 1, also ist der char am index 0 vom inputString gleich dem nächsten char im inputString also i+1, nach dem loop ist der string erstmal "bbc"
 6. Dann nehmen setzen wir den anfangs gespeicherten char in der temp Variable und legen den in den inputString am index 1, also newIndex
 7. Der String am Ende ist dann "bac"
@@ -187,12 +191,12 @@ char *shiftCharAtIndex(char *inputString, int index, int shift)
 ```
 
 ### Bestimmen welches Zeichen im String am seltensten vorkommt
+
 - Erstellt sich erstmal ein großes Array mit 256 Plätzen, wo jeder Eintrag eine 0 ist, für alle ASCII Zeichen die vorkommen könnten
 - chars sind unter der Haube einfach nur Zahlen -> 'A' = 65, 'B' = 66 ....
 - Dann geht man durch den übergebenen String und erhöht das was an der Stelle für dieses ASCII Zeichen steht den Wert um eins -> ascii_arr[s[0]]++ -> ascii_arr['a']++
 - Das heißt du hast ein großes Array, das dir sagt welches zeichen wie oft vorkommt, beim Test "aabbc" ist ascii_arr['a'] = 2, ascii_arr['b'] = 2 und ascii_arr['c'] = 1
 - Dann gehst du nochmal durch den String und guckst ob der Zählwert vom aktuellen char größer kleiner oder gleich dem des vorher gespeicherten ist.
-
 
 ```c
 char least_repeated_char(char *s, int *count)
@@ -249,5 +253,57 @@ void test_least_repeated_char(void)
 
     test_equal_c(least_repeated_char("", &c), '\0');
     test_equal_i(c, 0);
+}
+```
+
+### Einen \**char pointer zurückgeben, also ein Array aus char *pointer. Und wie man temporäre Strings anlegen kann, diese befüllt und dann in ein array legt.
+
+```c
+char **split_string(const char *to_split, char split, int *count_out)
+{
+    int count = 1;
+    for (int i = 0; i < strlen(to_split); i++)
+    {
+        char c = to_split[i];
+
+        if (c == split)
+        {
+            count++;
+        }
+    }
+
+    char **result = malloc(count * sizeof(char *));
+
+    char temp[256];
+    int temp_index = 0;
+    int j = 0;
+    for (int i = 0; i < strlen(to_split); i++)
+    {
+        char c = to_split[i];
+
+        if (c != split)
+        {
+            temp[temp_index] = c;
+            temp_index++;
+        }
+        else
+        {
+            temp[temp_index] = '\0';
+            char *part = malloc(temp_index + 1);
+            strcpy(part, temp);
+            result[j] = part;
+            j++;
+            temp_index = 0;
+        }
+    }
+
+    temp[temp_index] = '\0';
+    char *part = malloc(temp_index + 1);
+    strcpy(part, temp);
+    result[j] = part;
+
+    *count_out = count;
+
+    return result;
 }
 ```
