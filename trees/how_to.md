@@ -28,50 +28,44 @@ void printSorted(IntTree *node)
 
 ### Beim Durchlauf etwas zählen
 
-- Wenn du etwas zählen musst und Eltern und Kind vergleichen musst, solltest du darauf achten das du vor jedem Durchlauf bzw. Test den count in der "nicht recursive" Funktion zurücksetzt
-- Deine Abbruchbedingung returned einfach 0 und am Ende der recursive Funktion returns du den count
+- Wenn du Eltern und Kinder vergleichen willst, berechne die Vorzeichenwechsel lokal pro Knoten und addiere die Ergebnisse der Teilbäume einfach auf, so brauchst du weder globale Variablen noch ein Zurücksetzen vor jedem Test.
+- Deine Abbruchbedingung (NULL) gibt 0 zurück, und am Ende der Funktion gibst du den lokalen count zusammen mit den Aufrufen für den linken und rechten Teilbaum zurück (count + changingSign(node->left) + ...).
 
 ```c
-int count = 0;
-int changingSignRecursive(IntTree *node, int value)
+static bool hasSignChange(int parent, int child)
 {
+    return (parent > 0 && child < 0) || (parent < 0 && child > 0);
+}
 
+int changingSign(IntTree *node)
+{
     if (node == NULL)
     {
         return 0;
     }
 
+    int count = 0;
+
+    // 1. Prüfen, ob das linke Kind existiert und ein anderes Vorzeichen hat
     if (node->left != NULL)
     {
-        if ((node->left->data < 0 && value > 0) || (node->left->data > 0 && value < 0))
+        if (hasSignChange(node->data, node->left->data))
         {
             count++;
         }
     }
 
+    // 2. Prüfen, ob das rechte Kind existiert und ein anderes Vorzeichen hat
     if (node->right != NULL)
     {
-        if ((node->right->data < 0 && value > 0) || (node->right->data > 0 && value < 0))
+        if (hasSignChange(node->data, node->right->data))
         {
             count++;
         }
     }
 
-    changingSignRecursive(node->left, node->data);
-    changingSignRecursive(node->right, node->data);
-
-    return count;
-}
-
-int changingSign(IntTree *node)
-{
-    if (node != NULL)
-    {
-        count = 0;
-        return changingSignRecursive(node, node->data);
-    }
-
-    return 0;
+    // 3. Ergebnisse aus dem linken und rechten Teilbaum aufaddieren
+    return count + changingSign(node->left) + changingSign(node->right);
 }
 ```
 

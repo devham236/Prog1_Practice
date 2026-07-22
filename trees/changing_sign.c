@@ -46,46 +46,40 @@ IntTree *createRandomTree(int treeEntries[], IntTree *node, int index, int array
     return temp;
 }
 
-int count = 0;
-int changingSignRecursive(IntTree *node, int value)
+static bool hasSignChange(int parent, int child)
 {
+    return (parent > 0 && child < 0) || (parent < 0 && child > 0);
+}
 
+int changingSign(IntTree *node)
+{
     if (node == NULL)
     {
         return 0;
     }
 
+    int count = 0;
+
+    // 1. Prüfen, ob das linke Kind existiert und ein anderes Vorzeichen hat
     if (node->left != NULL)
     {
-        if ((node->left->data < 0 && value > 0) || (node->left->data > 0 && value < 0))
+        if (hasSignChange(node->data, node->left->data))
         {
             count++;
         }
     }
 
+    // 2. Prüfen, ob das rechte Kind existiert und ein anderes Vorzeichen hat
     if (node->right != NULL)
     {
-        if ((node->right->data < 0 && value > 0) || (node->right->data > 0 && value < 0))
+        if (hasSignChange(node->data, node->right->data))
         {
             count++;
         }
     }
 
-    changingSignRecursive(node->left, node->data);
-    changingSignRecursive(node->right, node->data);
-
-    return count;
-}
-
-int changingSign(IntTree *node)
-{
-    if (node != NULL)
-    {
-        count = 0;
-        return changingSignRecursive(node, node->data);
-    }
-
-    return 0;
+    // 3. Ergebnisse aus dem linken und rechten Teilbaum aufaddieren
+    return count + changingSign(node->left) + changingSign(node->right);
 }
 
 int main()
