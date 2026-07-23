@@ -4,7 +4,7 @@ string_to_char:(Liste und String)
 
 encrypt:(String)
 - Bekommst einen String und sollst ihn verschlüsseln, aber jeden character einfach spiegeln
-- a wird zu z, b wird zu y, z wird zu a
+- 'a' wird zu 'z', 'b' wird zu 'y', 'Z' wird zu 'A'
 
 front_back:(Liste und Array)
 - bekommst ein Array mit „Anweisungen“
