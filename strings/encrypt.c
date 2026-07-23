@@ -46,7 +46,7 @@ char *encode(char *s)
             }
             if (is_upper(c))
             {
-                char newChar = 65 - (c - 90);
+                char newChar = 90 - (c - 65);
                 result[j] = newChar;
                 j++;
             }
