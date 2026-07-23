@@ -1,0 +1,21 @@
+string_to_char:(Liste und String)
+- bekommst einen String, sollst den durchgehen und dann eine Liste erstellen die die gleiche Reihenfolge hat
+- Zum Beispiel: „abc“ —> [‘a’, ‘b’, ‘c’]
+
+encrypt:(String)
+- Bekommst einen String und sollst ihn verschlüsseln, aber jeden character einfach spiegeln
+- a wird zu z, b wird zu y, z wird zu a
+
+front_back:(Liste und Array)
+- bekommst ein Array mit „Anweisungen“
+- Jede Anweisung ist ein struct, bestehend aus inf value und Pos pos
+- Pos ist ein enum mit den Werte FRONT und BACK
+- Je nachdem was die Anweisung ist soll der übergebene Wert ans Ende oder an den Anfang der Liste gegeben werden.
+- Zum Beispiel BACK 5, FRONT 1, FRONT 3 sollte die Liste [3,1,5] wiedergeben
+
+nav_tree: (Tree und String)
+- Du bekommst einen Baum und einen String
+- Jeder Char im String ist eine Anweisung
+- r bedeutet geh rechts im Baum, l bedeutet geh links im Baum, v bedeutet du sollst den aktuellen Knoten mit dem Wert hinter v ersetzen, zum Beispiel: vx
+- Das heißt du ersetzt den aktuellen Knoten mit x
+- String könnte so aussehen: „rrlrvx“
